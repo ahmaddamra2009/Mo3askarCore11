@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Product> 
+@{
+    ViewData["Title"] = "AllProducts";
+}
+
+<h1>All Products</h1>
+<a asp-action="Create"
+   asp-controller="Products"
+   class="btn btn-success">Create New Product</a>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Operations</td>
+    </tr>
+    @foreach (var myProduct in Model)
+    {
+<tr>
+    <td>@myProduct.Id</td>
+    <td>@myProduct.ProductName</td>
+    <td>@myProduct.Price</td>
+    <td>
+        <a asp-action="Details" asp-controller="Products" asp-route-id="@myProduct.Id" class="btn btn-outline-primary">More</a>
+        <a asp-action="Edit" asp-controller="Products" asp-route-id="@myProduct.Id" class="btn btn-outline-success">Edit</a>
+        <a asp-action="Delete" asp-controller="Products" asp-route-id="@myProduct.Id" class="btn btn-outline-danger">Delete</a>
+    </td>
+</tr>
+    }
+</table>
+
+
+
+
+
+
+<hr />
+
+@*
+        MVC5
+    @Html.ActionLink("Create New Product", "NewProduct",null,"Products",new {@class="btn btn-primary" })
+*@
+
+@* Taghelper *@
+
+
+<hr />
+Product Name: @ViewBag.pName <br /> Price: @ViewBag.pPrice jd
+
+

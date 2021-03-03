@@ -1,0 +1,15 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<h2>Product name: @Model.ProductName</h2>
+<h2>Product price: @Model.Price</h2>
+
+<h2>Product Qty: @Model.Qty</h2>
+
+<a asp-action="AllProducts" asp-controller="Products" >Back to list</a>
+
+
